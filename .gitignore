@@ -32,6 +32,7 @@ MANIFEST
 htmlcov/
 .tox/
 .nox/
+tests/
 
 .mypy_cache/
 .dmypy.json
