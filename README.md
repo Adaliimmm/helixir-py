@@ -85,17 +85,25 @@ cp helixir/config.example.yaml config.yaml
 ### config.yaml
 
 ```yaml
-# LLM Provider (for memory extraction & reasoning)
-llm_provider: "cerebras"  # cerebras (free!), ollama, or openai
+# === LLM Provider (for memory extraction & reasoning) ===
+# RECOMMENDED: Cerebras — free, 70x faster than GPUs
+llm_provider: "cerebras"
 llm_model: "llama-3.3-70b"
-llm_api_key: null  # Set via HELIX_LLM_API_KEY env var
+llm_api_key: null  # Get free key at https://cloud.cerebras.ai
 
-# Embedding Provider (for semantic search)
-embedding_provider: "ollama"
-embedding_model: "nomic-embed-text"
-embedding_url: "http://localhost:11434"
+# === Embedding Provider (for semantic search) ===
+# RECOMMENDED: OpenRouter with text-embedding-3-large
+embedding_provider: "openai"
+embedding_model: "openai/text-embedding-3-large"
+embedding_url: "https://openrouter.ai/api/v1"
+embedding_api_key: null  # Get key at https://openrouter.ai
 
-# HelixDB Connection
+# NOTE: For local/offline use, replace with Ollama:
+# embedding_provider: "ollama"
+# embedding_model: "nomic-embed-text"
+# embedding_url: "http://localhost:11434"
+
+# === HelixDB Connection ===
 host: "localhost"
 port: 6969
 instance: "dev"
@@ -115,10 +123,31 @@ Add to `~/.cursor/mcp.json`:
       "env": {
         "HELIX_HOST": "localhost",
         "HELIX_PORT": "6969",
+        
         "HELIX_LLM_PROVIDER": "cerebras",
-        "HELIX_LLM_API_KEY": "your-api-key"
+        "HELIX_LLM_MODEL": "llama-3.3-70b",
+        "HELIX_LLM_API_KEY": "your-cerebras-key",
+        
+        "HELIX_EMBEDDING_PROVIDER": "openai",
+        "HELIX_EMBEDDING_MODEL": "openai/text-embedding-3-large",
+        "HELIX_EMBEDDING_URL": "https://openrouter.ai/api/v1",
+        "HELIX_EMBEDDING_API_KEY": "your-openrouter-key"
       }
     }
+  }
+}
+```
+
+#### Local Setup (Ollama)
+
+For offline/local use, replace embedding config with Ollama:
+
+```json
+{
+  "env": {
+    "HELIX_EMBEDDING_PROVIDER": "ollama",
+    "HELIX_EMBEDDING_MODEL": "nomic-embed-text",
+    "HELIX_EMBEDDING_URL": "http://localhost:11434"
   }
 }
 ```
@@ -152,12 +181,20 @@ These rules ensure the AI:
 All config values can be overridden via environment:
 
 ```bash
+# HelixDB
 export HELIX_HOST="localhost"
 export HELIX_PORT="6969"
+
+# LLM (Cerebras recommended)
 export HELIX_LLM_PROVIDER="cerebras"
-export HELIX_LLM_API_KEY="your-api-key"
-export HELIX_EMBEDDING_PROVIDER="ollama"
-export HELIX_EMBEDDING_URL="http://localhost:11434"
+export HELIX_LLM_MODEL="llama-3.3-70b"
+export HELIX_LLM_API_KEY="your-cerebras-key"
+
+# Embeddings (OpenRouter recommended)
+export HELIX_EMBEDDING_PROVIDER="openai"
+export HELIX_EMBEDDING_MODEL="openai/text-embedding-3-large"
+export HELIX_EMBEDDING_URL="https://openrouter.ai/api/v1"
+export HELIX_EMBEDDING_API_KEY="your-openrouter-key"
 ```
 
 ## 📖 Usage
