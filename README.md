@@ -245,14 +245,8 @@ skills = await client.search_by_concept(
 
 ## 📄 License
 
-**Helixir is dual-licensed:**
+**AGPL-3.0** — See [LICENSE](LICENSE)
 
-1. **AGPL-3.0** - Free for open source projects
-   - If you modify and deploy Helixir as a service, you must open-source your entire codebase
-   - See [LICENSE.txt](LICENSE.txt) and [LICENSE-AGPL.txt](LICENSE-AGPL.txt)
+If you modify and deploy Helixir as a service, you must open-source your codebase.
 
-2. **Commercial License** - For proprietary use
-   - Use Helixir without AGPL obligations
-   - Contact: [x.com/dengoslav](https://x.com/dengoslav)
-
-⚠️ **This is NOT MIT!** If you use Helixir as a SaaS without a commercial license, you must open-source ALL your code.
+⚠️ **This is NOT MIT!** If you use Helixir as a SaaS, you must open-source your code.
