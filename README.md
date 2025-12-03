@@ -2,7 +2,27 @@
   <img src="helixir_logo.jpeg" alt="Helixir Logo" width="400">
 </p>
 
-<h1 align="center">Helixir</h1>
+<h1 align="center">Helixir (Python) - DEPRECATED</h1>
+
+<p align="center">
+  <strong>⚠️ This repository is deprecated. Please use the Rust version: <a href="https://github.com/nikita-rulenko/Helixir">Helixir</a></strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/nikita-rulenko/Helixir">
+    <img src="https://img.shields.io/badge/➡️_USE_RUST_VERSION-Helixir-orange?style=for-the-badge" alt="Use Rust Version"/>
+  </a>
+</p>
+
+---
+
+> **Note:** This Python implementation was the prototype. The Rust version ([Helixir](https://github.com/nikita-rulenko/Helixir)) is now the primary, production-ready implementation with:
+> - 🚀 10x faster performance
+> - 📦 Single binary, no Python dependencies  
+> - 🔧 Better MCP integration
+> - 🛡️ Memory safety guarantees
+
+---
 
 <p align="center">
   <strong>Associative & Causal AI Memory</strong>
